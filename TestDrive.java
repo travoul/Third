@@ -11,14 +11,15 @@ import Items.*;
 import java.util.*;
 
 
-public class TestDrive{
+public class TestDrive extends Thread {
 	
-	public static void main (String args[]) {
+	public static void main (String args[]) throws InterruptedException{
 		int i;
 		System.out.println("Welcome to Instant Revenge");
 		int option = 0;
 		Data collection = new Data();
 		Scanner sc = new Scanner(System.in);
+		Thread battle;
 
 		while (option != -1) {
 			System.out.println("Type:\n1 to Create a new Ramdom Battle.\n2 to start all battles\n-1 to exit program.\nOption: ");
@@ -34,7 +35,9 @@ public class TestDrive{
 					System.out.println("Brace Yourselves, battles are about to begin...");
 					//battles.run();
 					for (i = 0 ; i < collection.getBattles().size() ; i++) {
-						collection.getBattles().get(i).run();
+						battle = new Thread(collection.getBattles().get(i));
+						battle.start();
+						battle.sleep(1500);
 					}
 				break;
 
