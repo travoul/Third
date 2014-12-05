@@ -47,7 +47,7 @@ public class Team {
 		if (p1 < p2) lose++;
 		else 	if (p1 > p2) win++;
 			else draw++;
-		System.out.println(getResults());
+		//System.out.println(getResults());
 	}
 
 	public void addChar (Character new_member) {
@@ -101,5 +101,15 @@ public class Team {
 
 	public ArrayList<Character> getCharacter() {
 		return characters;
+	}
+
+	public int getWin (){
+		return this.win;
+	}
+
+	public void reinitStats() {
+		this.win = 0;
+		this.draw = 0;
+		this.lose = 0;
 	}
 }
